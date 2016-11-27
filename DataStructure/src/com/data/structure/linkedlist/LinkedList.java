@@ -102,6 +102,7 @@ public class LinkedList
     }
 
 
+    //deletes nodes at the given position
     public void deletePosition( int position )
     {
         Node temp = head;
@@ -124,19 +125,4 @@ public class LinkedList
 
         prev.next = temp.next;
     }
-
-
-    public static void main( String[] args )
-    {
-        LinkedList linkedList = new LinkedList();
-        linkedList.push( 4 );
-        linkedList.push( 3 );
-        linkedList.push( 2 );
-        linkedList.push( 1 );
-        System.out.println( linkedList.printList() );
-        linkedList.deletePosition( 5 );
-
-        System.out.println( linkedList.printList() );
-    }
-
 }
