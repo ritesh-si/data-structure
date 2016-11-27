@@ -65,6 +65,44 @@ public class LinkedList
     }
 
 
+    //recursive method for printing list
+    public void printList( Node node )
+    {
+        if ( node == null ) {
+            System.out.println();
+            return;
+        }
+
+        System.out.print( node.data + " " );
+        printList( node.next );
+    }
+
+
+    //recursive method to print reverse of linked list
+    public void printReverse( Node node )
+    {
+        if ( node == null ) {
+            System.out.println();
+            return;
+        }
+
+
+        printReverse( node.next );
+        System.out.print( node.data + " " );
+    }
+
+
+    public static void main( String[] args )
+    {
+        LinkedList linkedList = new LinkedList();
+        linkedList.push( 10 );
+        linkedList.push( 9 );
+
+        linkedList.printList( linkedList.head );
+        linkedList.printReverse( linkedList.head );
+    }
+
+
     //returns size of the list
     public int size()
     {
@@ -76,6 +114,15 @@ public class LinkedList
         }
 
         return size;
+    }
+
+
+    //recursive method to return size
+    public int size( Node node )
+    {
+        if ( node == null )
+            return 0;
+        return 1 + size( node.next );
     }
 
 
