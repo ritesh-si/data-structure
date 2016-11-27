@@ -92,17 +92,6 @@ public class LinkedList
     }
 
 
-    public static void main( String[] args )
-    {
-        LinkedList linkedList = new LinkedList();
-        linkedList.push( 10 );
-        linkedList.push( 9 );
-
-        linkedList.printList( linkedList.head );
-        linkedList.printReverse( linkedList.head );
-    }
-
-
     //returns size of the list
     public int size()
     {
