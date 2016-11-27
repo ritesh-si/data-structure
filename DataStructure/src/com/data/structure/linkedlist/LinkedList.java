@@ -6,9 +6,10 @@ import java.util.ArrayList;
 public class LinkedList
 {
 
-    Node head;
+    private Node head;
 
 
+    //Inserts a new  node at front of the list
     public void push( int data )
     {
         Node newNode = new Node( data );
@@ -18,6 +19,7 @@ public class LinkedList
     }
 
 
+    //Inserts a new  node at end of the list
     public void append( int data )
     {
         if ( head == null ) {
@@ -35,6 +37,7 @@ public class LinkedList
     }
 
 
+    //Inserts a new  node at specified position of the list
     public void insertAfter( Node prevNode, int data )
     {
         if ( head == null ) {
@@ -49,6 +52,7 @@ public class LinkedList
     }
 
 
+    //prints the list
     public ArrayList<Object> printList()
     {
         Node node = head;
@@ -61,6 +65,7 @@ public class LinkedList
     }
 
 
+    //returns size of the list
     public int size()
     {
         Node node = head;
@@ -72,4 +77,66 @@ public class LinkedList
 
         return size;
     }
+
+
+    //deletes a node whose value is specified
+    public void delete( int key )
+    {
+        Node temp = head;
+        Node prev = null;
+
+        if ( temp != null && temp.data == key ) {
+            head = temp.next;
+            return;
+        }
+
+        while ( temp != null && temp.data != key ) {
+            prev = temp;
+            temp = temp.next;
+        }
+
+        if ( temp == null )
+            return;
+
+        prev.next = temp.next;
+    }
+
+
+    public void deletePosition( int position )
+    {
+        Node temp = head;
+        Node prev = null;
+
+        if ( position == 1 ) {
+            head = temp.next;
+            return;
+        }
+
+        int count = 1;
+        while ( temp != null && count != position ) {
+            prev = temp;
+            count++;
+            temp = temp.next;
+        }
+
+        if ( temp == null )
+            return;
+
+        prev.next = temp.next;
+    }
+
+
+    public static void main( String[] args )
+    {
+        LinkedList linkedList = new LinkedList();
+        linkedList.push( 4 );
+        linkedList.push( 3 );
+        linkedList.push( 2 );
+        linkedList.push( 1 );
+        System.out.println( linkedList.printList() );
+        linkedList.deletePosition( 5 );
+
+        System.out.println( linkedList.printList() );
+    }
+
 }
