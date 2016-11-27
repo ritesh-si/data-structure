@@ -161,4 +161,29 @@ public class LinkedList
 
         prev.next = temp.next;
     }
+
+
+    //method return true if an element is found
+    public boolean search( int key )
+    {
+        Node temp = head;
+
+        while ( temp != null ) {
+            if ( temp.data == key )
+                return true;
+            temp = temp.next;
+        }
+        return false;
+    }
+
+
+    //recursive method return true if an element is found
+    public boolean searchRecursive( Node node, int key )
+    {
+        if ( node == null )
+            return false;
+
+        return node.data == key || searchRecursive( node.next, key );
+
+    }
 }
